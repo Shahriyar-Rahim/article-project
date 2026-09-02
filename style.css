@@ -1,0 +1,193 @@
+:root {
+    --text-main: #292929;
+    --text-muted: #757575;
+    --border: #e6e6e6;
+    --brand: #1a8917;
+    --bg: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg);
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-main);
+}
+
+/* Buttons */
+.primary-btn {
+    background-color: var(--brand);
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.primary-btn.outline {
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+}
+
+/* Editor Layout */
+.editor-layout {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.title-input {
+    width: 100%;
+    font-size: 2.5rem;
+    border: none;
+    outline: none;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.metadata-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.metadata-bar select,
+.metadata-bar input {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+#editor-container {
+    height: 60vh;
+    font-size: 1.1rem;
+    border: none;
+}
+
+/* Remove Quill's default border for a cleaner look */
+.ql-toolbar.ql-snow,
+.ql-container.ql-snow {
+    border: none !important;
+}
+
+.ql-toolbar.ql-snow {
+    border-bottom: 1px solid var(--border) !important;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 10;
+}
+
+/* Feed Layout */
+.feed-layout {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.filter-header {
+    max-width: 700px;
+    margin: 2rem auto 0;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0 1rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    padding-bottom: 0.5rem;
+}
+
+.filter-btn.active {
+    color: var(--text-main);
+    font-weight: bold;
+    border-bottom: 2px solid var(--text-main);
+}
+
+/* Article Cards */
+.card {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 0;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-meta {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.badge.category {
+    background: #f2f2f2;
+}
+
+.badge.role-student {
+    background: #e3f2fd;
+    color: #1565c0;
+}
+
+.badge.role-teacher {
+    background: #f3e5f5;
+    color: #7b1fa2;
+}
+
+.badge.role-alumni {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+.date {
+    color: var(--text-muted);
+}
+
+.card-content {
+    color: var(--text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    /* Show only 3 lines of the article */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
