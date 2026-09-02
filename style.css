@@ -1,193 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap');
+
 :root {
-    --text-main: #292929;
-    --text-muted: #757575;
-    --border: #e6e6e6;
-    --brand: #1a8917;
-    --bg: #ffffff;
+    --bg-paper: #FAF7F1;
+    --text-ink: #241F2E;
+    --accent: #E7A33E;
+    --border-color: #E2DBD0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-paper);
+    color: var(--text-ink);
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+    font-family: "Fraunces", serif;
 }
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text-main);
-    background-color: var(--bg);
-    line-height: 1.6;
-}
-
-/* Navigation */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
-    border-bottom: 1px solid var(--border);
+    padding: 1.2rem 5%;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-family: "Fraunces", serif;
+    font-size: 1.8rem;
+    font-weight: 600;
     text-decoration: none;
-    color: var(--text-main);
+    color: var(--text-ink);
 }
 
-/* Buttons */
 .primary-btn {
-    background-color: var(--brand);
-    color: white;
+    background-color: var(--text-ink);
+    color: var(--bg-paper);
     border: none;
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
+    padding: 0.6rem 1.4rem;
+    border-radius: 9999px;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    font-weight: 500;
     text-decoration: none;
+    transition: opacity 0.2s;
+    display: inline-block;
+}
+
+.primary-btn:hover {
+    opacity: 0.9;
 }
 
 .primary-btn.outline {
     background-color: transparent;
-    color: var(--text-main);
-    border: 1px solid var(--text-main);
+    color: var(--text-ink);
+    border: 1px solid var(--text-ink);
 }
 
-/* Editor Layout */
 .editor-layout {
     max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
 }
 
 .title-input {
     width: 100%;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-family: "Fraunces", serif;
     border: none;
     outline: none;
-    margin-bottom: 1rem;
-    font-weight: bold;
-    color: var(--text-main);
+    background: transparent;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    color: var(--text-ink);
+}
+
+.title-input::placeholder {
+    color: #9c95a3;
 }
 
 .metadata-bar {
     display: flex;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex-wrap: wrap;
 }
 
 .metadata-bar select,
 .metadata-bar input {
-    padding: 0.5rem;
-    border: 1px solid var(--border);
-    border-radius: 4px;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--border-color);
+    background-color: transparent;
+    border-radius: 6px;
+    font-family: "Inter", sans-serif;
+    color: var(--text-ink);
+    outline: none;
 }
 
 #editor-container {
-    height: 60vh;
+    height: 55vh;
     font-size: 1.1rem;
-    border: none;
+    background: transparent;
 }
 
-/* Remove Quill's default border for a cleaner look */
 .ql-toolbar.ql-snow,
 .ql-container.ql-snow {
-    border: none !important;
+    border-color: var(--border-color) !important;
 }
 
 .ql-toolbar.ql-snow {
-    border-bottom: 1px solid var(--border) !important;
-    position: sticky;
-    top: 0;
-    background: white;
-    z-index: 10;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
 }
 
-/* Feed Layout */
-.feed-layout {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 0 1rem;
+.ql-container.ql-snow {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.filter-header-container {
+    max-width: 750px;
+    margin: 2rem auto 0;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .filter-header {
-    max-width: 700px;
-    margin: 2rem auto 0;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     overflow-x: auto;
-    padding: 0 1rem 1rem;
-    border-bottom: 1px solid var(--border);
+    padding: 0 1.5rem 0.5rem;
+    border-bottom: none;
+    margin: 0;
+}
+
+.subcategory-filter {
+    background: rgba(231, 163, 62, 0.05);
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
 }
 
 .filter-btn {
     background: none;
     border: none;
-    color: var(--text-muted);
+    color: #7a7285;
     font-size: 1rem;
     cursor: pointer;
+    font-weight: 500;
     padding-bottom: 0.5rem;
+    white-space: nowrap;
+    transition: color 0.2s;
 }
 
-.filter-btn.active {
-    color: var(--text-main);
-    font-weight: bold;
-    border-bottom: 2px solid var(--text-main);
+.filter-btn.active,
+.filter-btn:hover {
+    color: var(--text-ink);
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent);
 }
 
-/* Article Cards */
+.sub-filter-btn {
+    background: none;
+    border: none;
+    color: #9c95a3;
+    cursor: pointer;
+    font-weight: 400;
+    white-space: nowrap;
+    transition: color 0.2s;
+}
+
+.sub-filter-btn.active,
+.sub-filter-btn:hover {
+    color: var(--text-ink);
+    font-weight: 600;
+}
+
+.feed-layout {
+    max-width: 750px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
 .card {
-    border-bottom: 1px solid var(--border);
-    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-color);
+    padding: 2.5rem 0;
 }
 
 .card h2 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    font-family: "Fraunces", serif;
 }
 
 .card-meta {
     font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     display: flex;
     align-items: center;
     gap: 0.8rem;
+    flex-wrap: wrap;
 }
 
 .badge {
-    padding: 0.2rem 0.6rem;
-    border-radius: 12px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
     font-weight: 500;
+    font-size: 0.75rem;
 }
 
 .badge.category {
-    background: #f2f2f2;
+    background: #E2DBD0;
+    color: var(--text-ink);
 }
 
 .badge.role-student {
-    background: #e3f2fd;
-    color: #1565c0;
+    background: #E3EAF2;
+    color: #1B365D;
 }
 
 .badge.role-teacher {
-    background: #f3e5f5;
-    color: #7b1fa2;
+    background: #F2E3EE;
+    color: #5D1B48;
 }
 
 .badge.role-alumni {
-    background: #fff3e0;
-    color: #e65100;
+    background: #F2EBE3;
+    color: #5D3A1B;
 }
 
 .date {
-    color: var(--text-muted);
+    color: #7a7285;
 }
 
 .card-content {
-    color: var(--text-muted);
+    color: #4a4258;
     display: -webkit-box;
     -webkit-line-clamp: 3;
-    /* Show only 3 lines of the article */
     -webkit-box-orient: vertical;
     overflow: hidden;
+    line-height: 1.7;
+}
+
+::selection {
+    background-color: #E7A33E;
+    color: #241F2E;
 }

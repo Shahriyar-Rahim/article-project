@@ -5,32 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Feed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav>
         <div class="logo">Campus Hub</div>
-        <a href="write.html" class="primary-btn outline">Write</a>
+        <a href="write.html" class="primary-btn">Write Article</a>
     </nav>
 
-    <header class="filter-header">
-        <button class="filter-btn active" data-filter="All">All</button>
-        <button class="filter-btn" data-filter="Academic">Academic</button>
-        <button class="filter-btn" data-filter="Experience">Experience</button>
-        <button class="filter-btn" data-filter="Projects">Projects</button>
-        <button class="filter-btn" data-filter="Jobs">Jobs</button>
-    </header>
+    <div class="filter-header-container">
+        <div class="filter-header" id="main-category-filter">
+            <button class="filter-btn active" data-filter="All">All</button>
+            <button class="filter-btn" data-filter="Academic">Academic</button>
+            <button class="filter-btn" data-filter="Experience">Experience</button>
+            <button class="filter-btn" data-filter="Projects">Projects</button>
+            <button class="filter-btn" data-filter="Jobs">Jobs</button>
+            <button class="filter-btn" data-filter="Blog">Blog</button>
+        </div>
+        <div class="filter-header subcategory-filter" id="subcategory-filter">
+            <button class="sub-filter-btn active" data-sub="All">All Topics</button>
+        </div>
+    </div>
 
     <main id="feed-container" class="feed-layout">
-        <!-- Articles will be injected here by JavaScript -->
         <p>Loading articles...</p>
     </main>
 
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <!-- Custom Logic -->
     <script src="app.js"></script>
 </body>
 

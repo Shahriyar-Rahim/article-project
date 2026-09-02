@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write an Article</title>
+    <title>Write an Article - Campus Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <!-- Quill.js Editor Styles -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
+
 <body>
     <nav>
         <a href="index.html" class="logo">Campus Hub</a>
+        <a href="index.html" class="primary-btn outline">Back to Feed</a>
     </nav>
 
     <main class="editor-layout">
         <input type="text" id="post-title" placeholder="Article Title..." class="title-input">
-        
+
         <div class="metadata-bar">
             <select id="post-role">
                 <option value="Student">Student</option>
                 <option value="Teacher">Teacher</option>
                 <option value="Alumni">Alumni</option>
             </select>
-            
-            <select id="post-category">
-                <option value="Academic">Academic</option>
-                <option value="Experience">Experience</option>
-                <option value="Projects">Projects</option>
-                <option value="Jobs">Jobs</option>
-            </select>
-            
+
+            <div class="input-group">
+                <select id="post-category">
+                    <option value="Academic">Academic</option>
+                    <option value="Experience">Experience</option>
+                    <option value="Projects">Projects</option>
+                    <option value="Jobs">Jobs</option>
+                    <option value="Blog">Blog</option>
+                    <option value="Other">+ Add New Category...</option>
+                </select>
+                <input type="text" id="custom-category" placeholder="New Category Name..."
+                    style="display: none; margin-top: 5px;">
+            </div>
+
+            <div class="input-group">
+                <select id="post-subcategory">
+                    <!-- Dynamically populated -->
+                </select>
+                <input type="text" id="custom-subcategory" placeholder="New Topic Name..."
+                    style="display: none; margin-top: 5px;">
+            </div>
+
             <input type="text" id="author-name" placeholder="Your Name">
         </div>
 
         <!-- The Quill Editor Container -->
         <div id="editor-container"></div>
-        
-        <button id="publish-btn" class="primary-btn">Publish</button>
+
+        <div style="margin-top: 2rem; text-align: right;">
+            <button id="publish-btn" class="primary-btn">Publish Article</button>
+        </div>
     </main>
 
     <!-- Firebase SDKs -->
@@ -47,4 +68,5 @@
     <!-- Custom Logic -->
     <script src="app.js"></script>
 </body>
+
 </html>
