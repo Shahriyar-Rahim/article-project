@@ -4,21 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write an Article - Campus Hub</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Write an Article — Campus Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
-    <!-- Quill.js Editor Styles -->
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav>
-        <a href="index.html" class="logo">Campus Hub</a>
-        <a href="index.html" class="primary-btn outline">Back to Feed</a>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Campus Hub</a>
+            <div class="nav-links">
+                <a href="feed.html" class="nav-link">Explore Feed</a>
+            </div>
+        </div>
     </nav>
 
     <main class="editor-layout">
+        <div id="status-banner" class="status-banner hidden"></div>
+
         <input type="text" id="post-title" placeholder="Article Title..." class="title-input">
 
         <div class="metadata-bar">
@@ -37,7 +41,7 @@
                     <option value="Blog">Blog</option>
                     <option value="Other">+ Add New Category...</option>
                 </select>
-                <input type="text" id="custom-category" placeholder="New Category Name..."
+                <input type="text" id="custom-category" placeholder="New Category..."
                     style="display: none; margin-top: 5px;">
             </div>
 
@@ -45,27 +49,35 @@
                 <select id="post-subcategory">
                     <!-- Dynamically populated -->
                 </select>
-                <input type="text" id="custom-subcategory" placeholder="New Topic Name..."
+                <input type="text" id="custom-subcategory" placeholder="New Topic..."
                     style="display: none; margin-top: 5px;">
             </div>
 
-            <input type="text" id="author-name" placeholder="Your Name">
+            <input type="text" id="author-name" placeholder="Your Name *">
+
+            <!-- Avatar File Upload Input & Preview -->
+            <div class="avatar-upload-group">
+                <label for="author-avatar-file" class="avatar-label">
+                    <span id="avatar-label-text">📷 Upload Avatar</span>
+                    <input type="file" id="author-avatar-file" accept="image/*" style="display: none;">
+                </label>
+                <img id="avatar-preview" class="author-avatar hidden" alt="Avatar Preview">
+            </div>
         </div>
 
-        <!-- The Quill Editor Container -->
         <div id="editor-container"></div>
 
-        <div style="margin-top: 2rem; text-align: right;">
-            <button id="publish-btn" class="primary-btn">Publish Article</button>
+        <div class="publish-row">
+            <button id="publish-btn" class="primary-btn flex-center">
+                <span id="btn-text">Publish Article</span>
+                <div id="btn-spinner" class="spinner-sm hidden"></div>
+            </button>
         </div>
     </main>
 
-    <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
-    <!-- Quill.js Script -->
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <!-- Custom Logic -->
     <script src="app.js"></script>
 </body>
 

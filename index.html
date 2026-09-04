@@ -4,34 +4,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Feed</title>
+    <title>Campus Hub — Welcome</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <nav>
-        <div class="logo">Campus Hub</div>
-        <a href="write.html" class="primary-btn">Write Article</a>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Campus Hub</a>
+            <div class="nav-links">
+                <a href="feed.html" class="nav-link">Explore Feed</a>
+                <a href="write.html" class="primary-btn">Write Story</a>
+            </div>
+        </div>
     </nav>
 
-    <div class="filter-header-container">
-        <div class="filter-header" id="main-category-filter">
-            <button class="filter-btn active" data-filter="All">All</button>
-            <button class="filter-btn" data-filter="Academic">Academic</button>
-            <button class="filter-btn" data-filter="Experience">Experience</button>
-            <button class="filter-btn" data-filter="Projects">Projects</button>
-            <button class="filter-btn" data-filter="Jobs">Jobs</button>
-            <button class="filter-btn" data-filter="Blog">Blog</button>
+    <section class="hero-section">
+        <span class="hero-pill">Community Publishing Platform</span>
+        <h1 class="hero-title">Where campus voices connect.</h1>
+        <p class="hero-subtitle">
+            Explore research, career experiences, projects, and insights shared by students, teachers, and alumni.
+        </p>
+        <div class="hero-actions">
+            <a href="feed.html" class="primary-btn">Browse All Stories</a>
         </div>
-        <div class="filter-header subcategory-filter" id="subcategory-filter">
-            <button class="sub-filter-btn active" data-sub="All">All Topics</button>
+    </section>
+
+    <section class="showcase-container">
+        <h3 class="section-label">Popular Topics</h3>
+        <div class="topics-grid">
+            <a href="feed.html?cat=Academic" class="topic-chip">Academic</a>
+            <a href="feed.html?cat=Projects" class="topic-chip">Projects</a>
+            <a href="feed.html?cat=Jobs" class="topic-chip">Jobs & Careers</a>
+            <a href="feed.html?cat=Experience" class="topic-chip">Campus Experience</a>
+            <a href="feed.html?cat=Blog" class="topic-chip">Blog Insights</a>
+        </div>
+    </section>
+
+    <section class="showcase-container">
+        <div class="flex-between mb-4">
+            <h3 class="section-label">Trending & Recent Stories</h3>
+            <a href="feed.html" class="text-link">View All Stories →</a>
+        </div>
+
+        <div id="landing-stories-container">
+            <div class="spinner-wrapper">
+                <div class="spinner"></div>
+                <span>Fetching top stories...</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="article-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <div id="modal-article-body"></div>
         </div>
     </div>
 
-    <main id="feed-container" class="feed-layout">
-        <p>Loading articles...</p>
-    </main>
+    <div id="image-lightbox" class="lightbox-overlay hidden">
+        <span id="close-lightbox" class="close-lightbox-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded Image">
+    </div>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>

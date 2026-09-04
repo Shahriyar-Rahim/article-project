@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Feed — Explore Topics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo">Campus Hub</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="write.html" class="primary-btn">Write Story</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="filter-header-container">
+        <div class="filter-header" id="main-category-filter">
+            <button class="filter-btn active" data-filter="All">All Categories</button>
+            <button class="filter-btn" data-filter="Academic">Academic</button>
+            <button class="filter-btn" data-filter="Experience">Experience</button>
+            <button class="filter-btn" data-filter="Projects">Projects</button>
+            <button class="filter-btn" data-filter="Jobs">Jobs</button>
+            <button class="filter-btn" data-filter="Blog">Blog</button>
+        </div>
+        <div class="filter-header subcategory-filter" id="subcategory-filter">
+            <button class="sub-filter-btn active" data-sub="All">All Topics</button>
+        </div>
+    </div>
+
+    <main id="feed-container" class="feed-layout">
+        <div id="articles-list"></div>
+
+        <!-- Infinite Scroll Sentinel & Loader -->
+        <div id="infinite-scroll-trigger" class="spinner-wrapper py-6">
+            <div class="spinner"></div>
+            <span>Loading stories...</span>
+        </div>
+    </main>
+
+    <div id="article-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button id="close-modal" class="close-btn">&times;</button>
+            <div id="modal-article-body"></div>
+        </div>
+    </div>
+
+    <div id="image-lightbox" class="lightbox-overlay hidden">
+        <span id="close-lightbox" class="close-lightbox-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Expanded Image">
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
