@@ -12,6 +12,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 const db = firebase.firestore();
+const analytics = firebase.analytics();
 
 const subcategoriesMap = {
   Academic: [
